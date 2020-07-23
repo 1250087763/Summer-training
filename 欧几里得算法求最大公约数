@@ -3,7 +3,7 @@ int max(int a,int b);
 int main(void)
 {
 int a,b,maxcd;
-printf("please Enter tow number\n");
+printf("please Enter two number\n");
 scanf("%d%d",&a,&b);
 maxcd = max(a,b);
 printf("maxcd=%d",maxcd);
