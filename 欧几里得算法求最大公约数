@@ -1,0 +1,15 @@
+#include <stdio.h>
+int max(int a,int b);
+int main(void)
+{
+int a,b,maxcd;
+printf("please Enter tow number\n");
+scanf("%d%d",&a,&b);
+maxcd = max(a,b);
+printf("maxcd=%d",maxcd);
+return 0;
+}
+int max(int a, int b){
+    if (b == 0) return a;
+    return max(b,a%b);
+}
