@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main (void){
+int n,i,j,r;
+printf("input the number of student");
+scanf("%d",&n);
+int a[n];
+for(int i=0;i<n;i++){
+	printf("Enter the No.%d student",i+1);
+	scanf("%d",&a[i]);
+}
+for(i=0;i<n;i++){
+	for(j=i+1;j<n;j++){
+	r=a[i];
+	if(a[i]>a[j]){
+		r=a[i];
+		a[i]=a[j];
+		a[j]=r;
+	}
+}
+}
+for(i=0;i<n;i++){
+	printf("%d",a[i]);
+}
+return 0;
+}
