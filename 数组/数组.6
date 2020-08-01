@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(void){ 
+   while(1){
+     int a[3][3];
+     int b=0,i,j;
+     for(j=0;j<3;j++)
+	   for(i=0;i<3;i++)   
+         scanf("%d",&a[j][i]); 
+     for(j=0;j<3;j++)  
+       for(i=0;i<3;i++)   
+         if(i==j||bai(i+j)==2)    
+     b=a[j][i]+b;
+     printf("这个矩阵du的对zhi角线之和dao为%d\n",b); 
+ }
+ }
