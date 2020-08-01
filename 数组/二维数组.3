@@ -1,0 +1,32 @@
+#include<stdio.h> 
+int main(void)
+{  
+    int i,j,k,temp;
+    double a[3][4],b[4][5],c[3][5];
+    printf("Input 12 numbers(matrix A 3*4): \n");
+	for(i=0;i<3;i++){
+	    for(j=0;j<4;j++)
+           scanf("%lf",&a[i][j]);
+    }
+    printf("Input 20 numbers(matrix B 4*5): \n");
+    for(i=0;i<4;i++){
+	    for(j=0;j<5;j++)
+           scanf("%lf",&b[i][j]);
+       }
+    for(i=0;i<3;i++){
+	    for(j=0;j<5;j++){
+            temp=0;
+            for(k=0;k<4;k++){
+                temp+=a[i][k] * b[k][j];
+                c[i][j]=temp;
+               }
+           }
+       }
+    printf("matrix C as follow(3*5):\n");
+    for(i=0;i<3;i++){
+        for(j=0;j<5;j++)
+            printf("%.lf\t",c[i][j]);
+            printf("\n");
+       }
+    return 0;
+   }
