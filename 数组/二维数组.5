@@ -1,0 +1,57 @@
+#include<stdio.h>
+#define N 16
+int n,bianjie,i,j,direct=1;
+int a[N][N]={0};
+int pointer=2;
+int main(void)
+{
+	scanf("%d",&n);
+	for(i=0;i<N;i++)
+	{
+		if(i*i>=n)
+		{
+			bianjie=i;
+			break;
+		}
+	}
+	for(i=0,j=0,a[0][0]=1;pointer<=n;)
+	{
+		if(direct==1)
+			if(j+1==bianjie || a[i][j+1]!=0)
+			{
+				direct=2;i++;
+			}
+			else
+				j++;
+		else if(direct==2)
+			if(i+1==bianjie || a[i+1][j]!=0)
+			{
+				direct=3;j--;
+			}
+			else
+				i++;
+		else if(direct==3)
+			if(j==0 || a[i][j-1]!=0)
+			{
+				direct=4;i--;
+			}
+			else
+				j--;
+		else if(direct==4)
+
+			if(i==0 || a[i-1][j]!=0)
+			{
+				direct=1;j++;
+			}
+			else
+				i--;
+		a[i][j]=pointer++;
+	}
+	for(i=0;i<bianjie;i++)
+		for(j=0;j<bianjie;j++)
+		{
+			printf("%d ",a[i][j]);
+			if(j==bianjie-1)printf("\n");
+		}
+	return 0;
+}
