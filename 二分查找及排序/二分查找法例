@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<stdlib.h>
+int binarySearch(int a[],int n,int key){
+int left=0;
+int right=n-1;
+while(left<=right){
+int middle=(left+right)/2;
+if (middle<key)
+left=middle+1;
+else if(middle>key)
+right=middle-1;
+else
+return middle;
+}
+return-1;
+}
+int main(){
+int i,key,temp;
+int a[8]={0,1,2,3,4,5,6,7};
+for(i=0;i<8;i++)
+printf("%d",a[i]);
+printf("\n请输人所要查找的元素:");
+scanf("%d",&key);
+temp=binarySearch(a,8,key);
+if(temp==-1)
+printf("查找失败\n");
+else
+printf("查找成功\n");
+system("pause");
+return 0;
+}
