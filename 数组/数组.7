@@ -1,0 +1,48 @@
+/*给定一个非负整数，你至多可以交换一次数字中的任意两位。返回你能得到的最大值。
+
+示例 1 :
+
+输入: 2736
+输出: 7236
+解释: 交换数字2和数字7。
+示例 2 :
+
+输入: 9973
+输出: 9973
+解释: 不需要交换。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/maximum-swap
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。/*
+#include<stdio.h>
+int main (void){
+int n,j,m,result;
+int a[10]={0,0,0,0,0,0,0,0,0,0};
+int i=0,num=0;
+printf("Enter a unsigned number:");
+scanf("%d",&n);
+while(n!=0){
+	result=n%10;
+	a[i]=result;
+	n=n/10;
+	if(n!=0)
+	i++;
+}
+m=i;
+int k=a[m];
+for(i=0;i<10;i++){
+	if(k<a[i]){
+	k=a[i];
+	j=i;
+	}
+}
+a[j]=a[m];
+a[m]=k;
+k=1;
+for(i=0;i<=m;i++){
+	num=num+a[i]*k;
+	k=k*10;
+}
+printf("需要交换的数字是 %d 和 %d \n",a[m],a[j]);
+printf("the result is %d \n",num);
+}
