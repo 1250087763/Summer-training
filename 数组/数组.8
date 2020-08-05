@@ -1,0 +1,50 @@
+#include<stdio.h>
+int  value(int goal[],int k){
+	int min=goal[0];
+	for(int i=0;i<k;i++){
+		if(goal[i]>goal[i+1])
+		min=goal[i+1];
+	} 
+	return min;
+}
+int max(int a,int b){
+	if(a>b)
+	return a;
+	else
+	return b;
+}
+int min(int a,int b){
+	if(a<b)
+	return a;
+	else
+	return b; 
+}
+int main (void){
+	int n,k;
+	int i,j,l;
+	printf("输入k值：");
+	scanf("%d",&k);
+	printf("输入数字个数n:");
+	scanf("%d",&n);
+	printf("请输入%d个数字",n);
+	int a[n-1];
+	int b[n-1];
+	for(i=0;i<n;i++){
+		scanf("%d",&a[i]); 
+	}
+	for(i=0;i<n;i++){
+		for(j=i+1;j<n;j++){
+			a[j]=a[j]-k; 
+		}
+		for(l=i;l>=0;l--){
+			a[l]=a[l]+k; 
+		}
+		int maxi=max(a[n-1],a[i]);
+		int mini=min(a[0],a[i+1]);
+		b[i]=max(a[n-1],a[i])-min(a[0],a[i+1]);
+	}
+	int result=value(b,n-1);
+	printf("最小差值为：%d",result);
+	return 0;
+	
+}
