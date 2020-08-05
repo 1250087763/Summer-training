@@ -1,0 +1,22 @@
+#include<stdio.h>
+int next(int a,int b){
+	int rest,exchange,num;
+	rest=a%b;
+	exchange=a/b;
+	num=rest+exchange;
+	if(exchange!=0)
+		return next(num,b)+a-rest;	
+	else
+	    return rest;
+}
+int main (void){
+	int numbuy,numexchange;
+	int result;
+	printf("输入购买啤酒的数量：");
+	scanf("%d",&numbuy);
+	printf("输入兑换一瓶酒所需空瓶数量：");
+	scanf("%d",&numexchange); 
+    result=next(numbuy,numexchange);
+    printf("购买%d瓶酒，一共可以喝%d瓶酒",numbuy,result);
+    return 0;	
+} 
