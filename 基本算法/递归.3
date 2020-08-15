@@ -1,0 +1,47 @@
+bool validTicTacToe(char ** board, int boardSize){
+    int numx=0;
+    int numo=0;
+    bool flagx=false;
+    bool flago=false;
+    char x[boardSize];
+    char o[boardSize];
+    for(int i=0;i<boardSize;i++){
+        for(int j=0;j<boardSize;j++){
+            if(board[i][j]=='X') numx++;
+            if(board[i][j]=='O') numo++;
+        }
+    }
+    for(int i=0;i<boardSize;i++){
+        if(board[i][0]=='X'&&board[i][1]=='X'&&board[i][2]=='X') flagx=true;
+        if(board[i][0]=='O'&&board[i][1]=='O'&&board[i][2]=='O') flago=true;
+    }
+    for(int i=0;i<boardSize;i++){
+        if(board[0][i]=='X'&&board[1][i]=='X'&&board[2][i]=='X') flagx=true;
+        if(board[0][i]=='O'&&board[1][i]=='O'&&board[2][i]=='O') flago=true;
+    }
+    if(board[0][0]=='X'&&board[1][1]=='X'&&board[2][2]=='X') flagx=true;
+    if(board[0][0]=='O'&&board[1][1]=='O'&&board[2][2]=='O') flago=true;
+    if(board[0][2]=='X'&&board[1][1]=='X'&&board[2][0]=='X') flagx=true;
+    if(board[0][2]=='O'&&board[1][1]=='O'&&board[2][0]=='O') flago=true;
+
+    if(flagx&&flago){
+        return false;
+    }else if(flagx&&numx==numo+1){
+        return true;
+    }else if(flago&&numx==numo){
+        return true;
+    }else if(!flagx&&!flago&&numx<=numo+1&&numx>=numo){
+        if(numx==0&&numo==0){
+            return true;
+        }else if(numx==0&&numo!=0){
+            return false;
+        }else if(numo==0&&numx<3){
+            return true;
+        }else if(numo==0&&numx>=3){
+            return false;
+        }else{
+            return true;
+        }
+    }    
+    return false;
+}
