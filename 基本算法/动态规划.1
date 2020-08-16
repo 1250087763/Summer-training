@@ -1,0 +1,23 @@
+#define max(a,b) a>b?a:b
+int min(int a,int b,int c){
+    a = a < b?a : b;
+    a = a < c?a : c;
+    return a;
+}
+
+int mincostTickets(int* days, int daysSize, int* costs, int costsSize){
+    int *dp = (int *)malloc(sizeof(int) * (days[daysSize - 1] + 1));
+    memset(dp, 0, sizeof(int) * (days[daysSize - 1] + 1));
+    dp[0] = 0;
+    int dayindex = 0;
+    for(int i = 1;i <= days[daysSize - 1];i++){
+        if( i ==  days[dayindex] ){
+            dp[i] = min(dp[max(i - 1,0)] + costs[0], dp[max(i - 7, 0)] + costs[1],dp[max(i - 30, 0)] + costs[2] );
+            dayindex++;
+        }
+        else{
+            dp[i] = dp[i - 1];
+        }
+    }
+    return dp[days[daysSize - 1]];
+}
