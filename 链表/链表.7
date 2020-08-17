@@ -1,0 +1,43 @@
+#define SWAP(a,b) 
+{                 
+    int t = a;      
+    a = b;        
+    b = t;        
+}
+enum color{
+    red = 0,
+    white,
+    blue,
+};
+void sortColors(int* nums, int numsSize){
+    int needBeRed = 0;
+    int needBeWhite = 0;
+    int needBeBlue = numsSize - 1
+
+    while (needBeRed < needBeBlue)
+    {
+        while (nums[needBeRed] == red && needBeRed < needBeBlue)
+        {
+            needBeRed++;
+        }
+        while (nums[needBeBlue] != red && needBeRed < needBeBlue)
+        {
+            needBeBlue--;
+        }
+        SWAP((nums[needBeRed]), (nums[needBeBlue]));
+    }
+    needBeWhite = needBeRed;
+    needBeBlue = numsSize - 1;
+    while (needBeWhite < needBeBlue)
+    {
+        while (nums[needBeWhite] == white && needBeWhite < needBeBlue)
+        {
+            needBeWhite++;
+        }
+        while (nums[needBeBlue] != white && needBeWhite < needBeBlue)
+        {
+            needBeBlue--;
+        }
+        SWAP((nums[needBeWhite]), (nums[needBeBlue]));
+    }
+}
