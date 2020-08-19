@@ -1,0 +1,17 @@
+bool isSubsequence(char * s, char * t){
+    int a, b, i = 0, j = 0;
+    a = strlen(s);
+    b = strlen(t);
+    if(a == 0)
+        return true;
+    while(i<=a-1 && j!=b){
+        if(s[i] == t[j]){
+            i++;
+        }
+        j++;
+    }
+    if(i == a)
+        return true;
+    else
+        return false;
+}
