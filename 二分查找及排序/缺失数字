@@ -1,0 +1,9 @@
+int missingNumber(int* nums, int numsSize){
+    int i;
+     for( i = 0;i < numsSize;i++)
+    {
+        if(i!=nums[i])
+         break;
+    }
+    return i;
+}
